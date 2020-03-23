@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +17,44 @@ void main() {
 }
 
 class AnnotationsApp extends StatelessWidget {
+  Widget _buildApp() {
+    return MaterialApp(
+      title: 'Annotations',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        accentColor: Colors.grey[200],
+        fontFamily: 'RobotoCondensed',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              title: const TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              button: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'RobotoCondensed',
+                fontSize: 18,
+              ),
+              headline: const TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: const TextStyle(
+                  fontFamily: 'RobotoCondensed',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
+      ),
+      home: MainScreen(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -26,55 +63,7 @@ class AnnotationsApp extends StatelessWidget {
           value: RecordsProvider(),
         ),
       ],
-      child: Platform.isIOS
-          ? CupertinoApp(
-              title: 'Annotations',
-              theme: CupertinoThemeData(
-                barBackgroundColor: Colors.green,
-                primaryColor: Colors.green,
-                primaryContrastingColor: Colors.lightGreen,
-                textTheme: CupertinoTextThemeData(),
-//                textTheme: CupertinoTextThemeData().copyWith(
-//                  textStyle: const TextStyle(
-//                    fontFamily: 'RobotoCondensed',
-//                    fontSize: 18,
-//                    fontWeight: FontWeight.bold,
-//                  ),
-//                  actionTextStyle: const TextStyle(
-//                    color: Colors.black,
-//                  ),
-//                ),
-              ),
-              home: MainScreen(),
-            )
-          : MaterialApp(
-              title: 'Annotations',
-              theme: ThemeData(
-                primarySwatch: Colors.green,
-                accentColor: Colors.lightGreen,
-                fontFamily: 'RobotoCondensed',
-                textTheme: ThemeData.light().textTheme.copyWith(
-                      title: const TextStyle(
-                        fontFamily: 'RobotoCondensed',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      button: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                appBarTheme: AppBarTheme(
-                  textTheme: ThemeData.light().textTheme.copyWith(
-                        title: const TextStyle(
-                          fontFamily: 'RobotoCondensed',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                ),
-              ),
-              home: MainScreen(),
-            ),
+      child: _buildApp(),
     );
   }
 }

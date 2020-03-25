@@ -1,15 +1,21 @@
-class Record {
+import 'dart:io';
+import 'dart:convert';
+
+class Image {
   String _id;
   DateTime _timestamp;
   String _tag;
-  String _annotation;
+  String _image;
 
-  Record(
+  Image(
     this._id,
     this._timestamp,
     this._tag,
-    this._annotation,
-  );
+    File image,
+  ) {
+    List<int> imageBytes = image.readAsBytesSync();
+    _image = base64Encode(imageBytes);
+  }
 
   String get id => _id;
 
@@ -17,7 +23,7 @@ class Record {
 
   String get tag => _tag;
 
-  String get annotation => _annotation;
+  String get image => _image;
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
@@ -26,15 +32,15 @@ class Record {
     }
     map['timestamp'] = timestamp;
     map['tag'] = tag;
-    map['annotation'] = annotation;
+    map['image'] = image;
 
     return map;
   }
 
-  Record.fromMapObject(Map<String, dynamic> map) {
+  Image.fromMapObject(Map<String, dynamic> map) {
     this._id = map['id'];
     this._timestamp = DateTime.parse(map['timestamp']);
     this._tag = map['tag'];
-    this._annotation = map['annotation'];
+    this._image = map['image'];
   }
 }

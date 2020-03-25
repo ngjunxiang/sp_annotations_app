@@ -25,6 +25,7 @@ class MainScreen extends StatelessWidget {
         mediaQuery.padding.bottom;
 
     final pageBody = SafeArea(
+      bottom: false,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -8,3 +8,4 @@ enum SensorOption {
     Geolocation,
     GeolocationSensor,
 }
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utilities/radio_options.dart';
+import '../utilities/enums.dart';
 
 class SensorWidget extends StatefulWidget {
   @override
@@ -10,22 +10,20 @@ class SensorWidget extends StatefulWidget {
 class _SensorWidgetState extends State<SensorWidget> {
   SensorOption _option = SensorOption.Geolocation;
 
-  String getSensorOptionText(SensorOption sensorOption) {
+  String _getSensorOptionText(SensorOption sensorOption) {
     switch (sensorOption) {
       case SensorOption.Geolocation:
         return 'Geolocation';
         break;
       case SensorOption.GeolocationSensor:
-        return 'Geolocation + Sensor';
-        break;
       default:
-        return 'Unknown';
+        return 'Geolocation + Sensor';
     }
   }
 
   Widget _buildRadioListTile(SensorOption sensorOption) {
     return RadioListTile(
-      title: Text(getSensorOptionText(sensorOption)),
+      title: Text(_getSensorOptionText(sensorOption)),
       activeColor: Theme.of(context).primaryColor,
       value: sensorOption,
       groupValue: _option,

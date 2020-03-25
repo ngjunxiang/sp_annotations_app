@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utilities/radio_options.dart';
+import '../utilities/enums.dart';
 
 class AnnotationsWidget extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _AnnotationsWidgetState extends State<AnnotationsWidget> {
     'Empty',
   ];
 
-  String getRecordOptionText(RecordOption recordOption) {
+  String _getRecordOptionText(RecordOption recordOption) {
     switch (recordOption) {
       case RecordOption.PhysicallyImpaired:
         return 'Physically Impaired';
@@ -27,16 +27,14 @@ class _AnnotationsWidgetState extends State<AnnotationsWidget> {
         return 'Visually Impaired';
         break;
       case RecordOption.WheelchairBound:
-        return 'Wheelchair Bound';
-        break;
       default:
-        return 'Unknown';
+        return 'Wheelchair Bound';
     }
   }
 
   Widget _buildRadioListTile(RecordOption recordOption) {
     return RadioListTile(
-      title: Text(getRecordOptionText(recordOption)),
+      title: Text(_getRecordOptionText(recordOption)),
       activeColor: Theme.of(context).primaryColor,
       value: recordOption,
       groupValue: _option,
@@ -76,7 +74,7 @@ class _AnnotationsWidgetState extends State<AnnotationsWidget> {
               Divider(),
               Container(
                 padding: const EdgeInsets.only(
-                  bottom: 10,
+                  bottom: 5,
                 ),
                 child: GridView.count(
                   shrinkWrap: true,
@@ -85,6 +83,7 @@ class _AnnotationsWidgetState extends State<AnnotationsWidget> {
                   physics: NeverScrollableScrollPhysics(),
                   children: annotations
                       .map((value) => Card(
+                            color: Theme.of(context).accentColor,
                             child: Center(
                               child: Text(value),
                             ),

@@ -42,11 +42,11 @@ class Geolocation {
     }
     map['timestamp'] = timestamp;
     map['tag'] = tag;
-    map['latitude'] = latitude;
-    map['longitude'] = longitude;
-    map['accuracy'] = accuracy;
-    map['altitude'] = altitude;
-    map['speed'] = speed;
+    map['latitude'] = latitude.toString();
+    map['longitude'] = longitude.toString();
+    map['accuracy'] = accuracy.toString();
+    map['altitude'] = altitude.toString();
+    map['speed'] = speed.toString();
 
     return map;
   }
@@ -55,10 +55,10 @@ class Geolocation {
     this._id = map['id'];
     this._timestamp = DateTime.parse(map['timestamp']);
     this._tag = map['tag'];
-    this._latitude = map['latitude'];
-    this._longitude = map['longitude'];
-    this._accuracy = map['accuracy'];
-    this._altitude = map['altitude'];
-    this._speed = map['speed'];
+    this._latitude = double.parse(map['latitude']);
+    this._longitude = double.parse(map['longitude']);
+    this._accuracy = double.parse(map['accuracy']);
+    this._altitude = double.parse(map['altitude']);
+    this._speed = double.parse(map['speed']);
   }
 }

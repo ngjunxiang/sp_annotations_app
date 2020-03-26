@@ -1,7 +1,7 @@
-import 'package:sp_annotations_app/utilities/database_helper.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../models/geolocation.dart';
+import '../utilities/database_helper.dart';
 
 class GeolocationTableHelper {
   static DatabaseHelper _databaseHelper = DatabaseHelper();

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:sp_annotations_app/utilities/geolocation_table_helper.dart';
 
 import '../models/geolocation.dart';
-import '../utilities/database_helper.dart';
 
 class RecordsProvider with ChangeNotifier {
   GeolocationTableHelper _geolocationTableHelper = GeolocationTableHelper();

@@ -1,13 +1,13 @@
+import 'dart:async';
+
 import 'package:location/location.dart';
-import 'package:sp_annotations_app/models/geolocation.dart';
+
+import '../models/geolocation.dart';
+import '../models/preferences.dart';
+import '../utilities/device_helper.dart';
 
 class LocationHelper {
   static final Location location = Location();
-
-  // once a second
-  static Future<bool> init() async {
-    return checkForPermissions();
-  }
 
   static Future<bool> checkForPermissions() async {
     bool _serviceEnabled;
@@ -34,11 +34,12 @@ class LocationHelper {
 
   static Future<Geolocation> getGeolocation() async {
     LocationData locationData = await location.getLocation();
+    String deviceUUID = await DeviceHelper.getDeviceUUID();
 
     return Geolocation(
-      '123',
+      deviceUUID,
       DateTime.fromMillisecondsSinceEpoch(locationData.time.toInt()),
-      '123',
+      Preferences.tag,
       locationData.latitude,
       locationData.longitude,
       locationData.accuracy,

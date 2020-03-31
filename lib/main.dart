@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import './providers/records_provider.dart';
+import './providers/geolocation_provider.dart';
 import './screens/main_screen.dart';
 
 void main() {
@@ -60,7 +60,7 @@ class AnnotationsApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: RecordsProvider(),
+          value: GeolocationProvider(),
         ),
       ],
       child: _buildApp(),

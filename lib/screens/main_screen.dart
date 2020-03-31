@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/annotations_widget.dart';
-import '../widgets/sensor_widget.dart';
+import '../widgets/group_widget.dart';
 
 class MainScreen extends StatelessWidget {
   Widget _buildHeader(BuildContext context, double availableHeight) {
@@ -31,7 +31,7 @@ class MainScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             _buildHeader(context, availableHeight),
-            SensorWidget(),
+            GroupWidget(),
             AnnotationsWidget(),
           ],
         ),
@@ -40,7 +40,12 @@ class MainScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
-      body: pageBody,
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(new FocusNode());
+        },
+        child: pageBody,
+      ),
     );
   }
 }

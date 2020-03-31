@@ -1,13 +1,11 @@
 PODS:
+  - device_info (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - geolocator (5.3.0):
-    - Flutter
-  - google_api_availability (2.0.3):
-    - Flutter
-  - location_permissions (2.0.5):
+  - location (0.0.1):
     - Flutter
   - path_provider (0.0.1):
     - Flutter
@@ -18,10 +16,9 @@ PODS:
     - FMDB (~> 2.7.2)
 
 DEPENDENCIES:
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
-  - geolocator (from `.symlinks/plugins/geolocator/ios`)
-  - google_api_availability (from `.symlinks/plugins/google_api_availability/ios`)
-  - location_permissions (from `.symlinks/plugins/location_permissions/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
@@ -31,14 +28,12 @@ SPEC REPOS:
     - FMDB
 
 EXTERNAL SOURCES:
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
-  geolocator:
-    :path: ".symlinks/plugins/geolocator/ios"
-  google_api_availability:
-    :path: ".symlinks/plugins/google_api_availability/ios"
-  location_permissions:
-    :path: ".symlinks/plugins/location_permissions/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   path_provider_macos:
@@ -47,11 +42,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite/ios"
 
 SPEC CHECKSUMS:
+  device_info: cbf09d2ec12aa7110e0b09fabe54b5bd6c8efe74
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  geolocator: 7cdcf71180b80913b3cd84ab715d3b5365b378af
-  google_api_availability: 526574c9a5a0ae541e18c65f98e47afc11f53c8b
-  location_permissions: 4a49d4e5bec5b653643e551ab77963cc99bb0e4a
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
   path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
   sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
